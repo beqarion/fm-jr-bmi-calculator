@@ -18,6 +18,8 @@ module.exports = {
       backgroundImage: {
         "gradient-1":
           "linear-gradient(290deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%)",
+        "gradient-2":
+          "linear-gradient(290deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%)",
       },
       boxShadow: {
         "custom-form": "16px 32px 56px 0px rgba(143, 174, 207, 0.25)",

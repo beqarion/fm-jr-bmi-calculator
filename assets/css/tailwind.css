@@ -18,6 +18,17 @@ Fonts
   font-weight: 600;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-custom-gunmetal;
+}
+p {
+  @apply text-custom-dark-electric-blue;
+}
 /* 
 =======
 Custom Radio Input
@@ -25,6 +36,9 @@ Custom Radio Input
 */
 .custom-radio {
   position: relative;
+  padding-left: 49px;
+  cursor: pointer;
+  user-select: none;
 }
 /* hide old factory input style */
 .custom-radio input {
@@ -33,4 +47,58 @@ Custom Radio Input
   cursor: pointer;
   pointer-events: none;
 }
-/* create custon input */
+/* create custom input */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 31px;
+  width: 31px;
+  border-radius: 50%;
+  @apply border border-custom-gray transition;
+}
+/* hover effect on checkmark */
+.custom-radio:hover input ~ .checkmark {
+  @apply border-custom-blue;
+}
+/* style, when checked */
+.custom-radio input:checked ~ .checkmark {
+  @apply border-none bg-[#345FF626];
+}
+/* create small circle inside hidden*/
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  height: 15px;
+  width: 15px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  @apply bg-custom-blue;
+}
+/* show inner circle when checked */
+.custom-radio input:checked ~ .checkmark::after {
+  display: block;
+}
+
+/* 
+=======
+Limitations
+=======
+*/
+.limitation {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.limitation > div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.limitation h4 {
+  @apply text-[20px] font-semibold leading-6 -tracking-[1px];
+}
