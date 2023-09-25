@@ -23,6 +23,7 @@ module.exports = {
       },
       boxShadow: {
         "custom-form": "16px 32px 56px 0px rgba(143, 174, 207, 0.25)",
+        "custom-limitations": "16px 32px 56px 0px rgba(143, 174, 207, 0.25)",
       },
     },
   },
