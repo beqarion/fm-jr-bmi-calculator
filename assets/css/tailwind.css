@@ -29,6 +29,10 @@ h6 {
 p {
   @apply text-custom-dark-electric-blue;
 }
+/* custom class */
+.section-center {
+  @apply lg:max-w-[1160px] mx-auto;
+}
 /* 
 =======
 Custom Radio Input

@@ -21,137 +21,146 @@
     <title>Frontend Mentor | Body Mass Index Calculator</title>
   </head>
   <body>
-    <main class="min-h-screen pt-8 pb-24 font-inter relative">
+    <main class="min-h-screen pt-8 lg:pt-[75px] pb-24 font-inter relative">
       <!-- blue background absolute -->
       <div
-        class="absolute top-0 left-0 w-full h-[640px] pointer-events-none bg-gradient-1 -z-10 rounded-b-[35px]"
+        class="absolute top-0 left-0 lg:left-6 w-full lg:w-[68%] h-[640px] lg:h-[737px] pointer-events-none bg-gradient-1 -z-10 rounded-b-[35px]"
       ></div>
       <!-- calculator section  -->
       <section>
         <div class="section-center px-6 sm:px-10">
           <!-- logo -->
-          <div class="w-10 h-10 mx-auto">
+          <div class="w-10 h-10 lg:w-16 lg:h-16 mx-auto lg:mx-0">
             <img
               src="./assets/images/logo.svg "
               alt=""
             />
           </div>
-          <!-- BMI info -->
-          <article class="mt-6 sm:mt-10 text-center space-y-6">
-            <h1
-              class="text-custom-gunmetal text-5xl leading-[52.8px] font-semibold -tracking-[2.4px ]"
-            >
-              Body Mass <br />
-              Index Calculator
-            </h1>
-            <p class="text-custom-dark-electric-blue">
-              Better understand your weight in relation to your height using our
-              body mass index (BM) calculator. While BMI is not the sole
-              determinant of a healthy weight, it offers a valuable starting
-              point to evaluate your overall health and well-being.
-            </p>
-          </article>
-          <!-- BMI form -->
-          <form
-            class="mt-12 sm:mt-10 bg-custom-white rounded-2xl p-6 sm:p-8 shadow-custom-form space-y-6 sm:space-y-8"
-            action=""
-          >
-            <!-- title -->
-            <h2
-              class="text-custom-gunmetal text-2xl leading-[29px] font-semibold -tracking-[1.2px]"
-            >
-              Enter your details below
-            </h2>
-            <!-- radio fields -->
-            <div class="flex justify-between gap-6">
-              <label
-                class="custom-radio basis-[299px] h-[31px] flex items-center"
-              >
-                Metric
-                <input
-                  checked
-                  type="radio"
-                  name="unit"
-                  value="metric"
-                />
-                <span class="checkmark"></span>
-              </label>
-              <label
-                class="custom-radio basis-[299px] h-[31px] flex items-center"
-              >
-                Imperial
-                <input
-                  type="radio"
-                  name="unit"
-                  value="imperial"
-                />
-                <span class="checkmark"></span>
-              </label>
-            </div>
-            <!-- input fields -->
-            <div class="flex flex-col gap-6">
-              <!-- height -->
-              <label>
-                <p class="text-[14px] leading-[21px]">Height</p>
-                <div
-                  class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center"
-                >
-                  <input
-                    class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
-                    type="text"
-                  />
-                  <span
-                    class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
-                    >cm</span
-                  >
-                </div>
-              </label>
-              <!-- weight -->
-              <label>
-                <p class="text-[14px] leading-[21px]">Weight</p>
-                <div
-                  class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center"
-                >
-                  <input
-                    class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
-                    type="text"
-                  />
-                  <span
-                    class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
-                    >kg</span
-                  >
-                </div>
-              </label>
-            </div>
-            <!-- result -->
+          <!-- title & form container -->
+          <div class="lg:flex items-center gap-8">
+            <!-- BMI info -->
             <article
-              class="bg-custom-blue p-8 rounded-2xl sm:rounded-r-[99px] flex flex-col sm:flex-row sm:items-center gap-6"
+              class="lg:flex-1 mt-6 sm:mt-10 lg:mt-0 text-center lg:text-left space-y-6 lg:space-y-[35px]"
             >
-              <div class="sm:flex-1 flex flex-col gap-2">
-                <h4 class="text-custom-white font-semibold">Your BMI is...</h4>
-                <h3
-                  class="text-custom-white -tracking-[2.4px] leading-[52.8px] text-5xl font-semibold"
-                >
-                  23.4
-                </h3>
-              </div>
-              <p class="sm:flex-1 text-custom-white text-[14px] leading-[21px]">
-                Your BMI suggests you're [healthy weight] Your ideal weight is
-                between <span class="font-bold">63.3kgs - 85.2kgs</span>.
+              <h1
+                class="text-custom-gunmetal text-5xl lg:text-[64px] leading-[52.8px] lg:leading-[70.4px] font-semibold -tracking-[2.4px ] lg:-tracking-[3.2px]"
+              >
+                Body Mass <br />
+                Index Calculator
+              </h1>
+              <p class="text-custom-dark-electric-blue">
+                Better understand your weight in relation to your height using
+                our body mass index (BM) calculator. While BMI is not the sole
+                determinant of a healthy weight, it offers a valuable starting
+                point to evaluate your overall health and well-being.
               </p>
             </article>
-          </form>
+            <!-- BMI form -->
+            <form
+              class="lg:flex-1 mt-12 sm:mt-10 lg:mt-0 bg-custom-white rounded-2xl p-6 sm:p-8 shadow-custom-form space-y-6 sm:space-y-8"
+              action=""
+            >
+              <!-- title -->
+              <h2
+                class="text-custom-gunmetal text-2xl leading-[29px] font-semibold -tracking-[1.2px]"
+              >
+                Enter your details below
+              </h2>
+              <!-- radio fields -->
+              <div class="flex justify-between gap-6">
+                <label
+                  class="custom-radio basis-[299px] h-[31px] flex items-center"
+                >
+                  <span class="font-semibold">Metric</span>
+                  <input
+                    checked
+                    type="radio"
+                    name="unit"
+                    value="metric"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <label
+                  class="custom-radio basis-[299px] h-[31px] flex items-center"
+                >
+                  <span class="font-semibold">Imperial</span>
+                  <input
+                    type="radio"
+                    name="unit"
+                    value="imperial"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <!-- input fields -->
+              <div class="flex flex-col lg:flex-row gap-6">
+                <!-- height -->
+                <label>
+                  <p class="text-[14px] leading-[21px]">Height</p>
+                  <div
+                    class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center"
+                  >
+                    <input
+                      class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
+                      type="text"
+                    />
+                    <span
+                      class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
+                      >cm</span
+                    >
+                  </div>
+                </label>
+                <!-- weight -->
+                <label>
+                  <p class="text-[14px] leading-[21px]">Weight</p>
+                  <div
+                    class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center"
+                  >
+                    <input
+                      class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
+                      type="text"
+                    />
+                    <span
+                      class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
+                      >kg</span
+                    >
+                  </div>
+                </label>
+              </div>
+              <!-- result -->
+              <article
+                class="bg-custom-blue p-8 rounded-2xl sm:rounded-r-[99px] flex flex-col sm:flex-row sm:items-center gap-6"
+              >
+                <div class="sm:flex-1 flex flex-col gap-2">
+                  <h4 class="text-custom-white font-semibold">
+                    Your BMI is...
+                  </h4>
+                  <h3
+                    class="text-custom-white -tracking-[2.4px] lg:-tracking-[3.2px] leading-[52.8px] lg:leading-[70.4px] text-5xl lg:text-[64px] font-semibold"
+                  >
+                    23.4
+                  </h3>
+                </div>
+                <p
+                  class="sm:flex-1 text-custom-white text-[14px] leading-[21px]"
+                >
+                  Your BMI suggests you're [healthy weight] Your ideal weight is
+                  between <span class="font-bold">63.3kgs - 85.2kgs</span>.
+                </p>
+              </article>
+            </form>
+          </div>
         </div>
       </section>
       <!-- about -->
-      <section class="mt-[72px] sm:mt-[96px]">
+      <section class="mt-[72px] sm:mt-[96px] lg:mt-[210px]">
         <div
           class="section-center flex flex-col sm:flex-row gap-12 sm:gap-[75px] sm:items-center"
         >
           <!-- image container -->
-          <div class="sm:flex-1 sm:h-[411px]">
+          <div class="sm:flex-1 sm:h-[411px] lg:w-[564px] lg:h-[388px]">
             <img
-              class="sm:object-cover sm:h-full sm:w-full sm:object-right"
+              class="sm:object-cover sm:h-full sm:w-auto sm:object-bottom lg:object-fill"
               src="./assets/images/image-man-eating.webp"
               alt=""
             />
