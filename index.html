@@ -28,7 +28,7 @@
       ></div>
       <!-- calculator section  -->
       <section>
-        <div class="section-center px-6 sm:px-10">
+        <div class="section-center px-6 sm:px-10 xl:px-0">
           <!-- logo -->
           <div class="w-10 h-10 lg:w-16 lg:h-16 mx-auto lg:mx-0">
             <img
@@ -37,10 +37,10 @@
             />
           </div>
           <!-- title & form container -->
-          <div class="lg:flex items-center gap-8">
+          <div class="lg:flex items-center gap-8 mt-6 sm:mt-10 lg:mt-[28px]">
             <!-- BMI info -->
             <article
-              class="lg:flex-1 mt-6 sm:mt-10 lg:mt-0 text-center lg:text-left space-y-6 lg:space-y-[35px]"
+              class="lg:flex-1 text-center lg:text-left space-y-6 lg:space-y-[35px]"
             >
               <h1
                 class="text-custom-gunmetal text-5xl lg:text-[64px] leading-[52.8px] lg:leading-[70.4px] font-semibold -tracking-[2.4px ] lg:-tracking-[3.2px]"
@@ -73,7 +73,7 @@
                 >
                   <span class="font-semibold">Metric</span>
                   <input
-                    checked
+                    id="metric-btn"
                     type="radio"
                     name="unit"
                     value="metric"
@@ -85,6 +85,7 @@
                 >
                   <span class="font-semibold">Imperial</span>
                   <input
+                    id="imperial-btn"
                     type="radio"
                     name="unit"
                     value="imperial"
@@ -92,17 +93,22 @@
                   <span class="checkmark"></span>
                 </label>
               </div>
-              <!-- input fields -->
-              <div class="flex flex-col lg:flex-row gap-6">
+              <!-- metric input fields -->
+              <div
+                id="metric"
+                class="flex flex-col lg:flex-row gap-6"
+              >
                 <!-- height -->
                 <label>
                   <p class="text-[14px] leading-[21px]">Height</p>
                   <div
-                    class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center"
+                    class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center cursor-pointer hover:border-custom-blue transition"
                   >
                     <input
+                      id="cm"
                       class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
                       type="text"
+                      placeholder="0"
                     />
                     <span
                       class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
@@ -114,11 +120,13 @@
                 <label>
                   <p class="text-[14px] leading-[21px]">Weight</p>
                   <div
-                    class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center"
+                    class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center cursor-pointer hover:border-custom-blue transition"
                   >
                     <input
+                      id="kg"
                       class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
                       type="text"
+                      placeholder="0"
                     />
                     <span
                       class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
@@ -127,8 +135,87 @@
                   </div>
                 </label>
               </div>
+              <!-- imperial input fields -->
+              <div
+                id="imperial"
+                class="flex flex-col gap-6 hidden"
+              >
+                <!-- height -->
+                <label>
+                  <p class="text-[14px] leading-[21px]">Height</p>
+                  <div class="flex gap-4">
+                    <!-- feets -->
+                    <div
+                      class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center cursor-pointer hover:border-custom-blue transition"
+                    >
+                      <input
+                        id="feets"
+                        class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
+                        type="text"
+                        placeholder="0"
+                      />
+                      <span
+                        class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
+                        >ft</span
+                      >
+                    </div>
+                    <!-- inches -->
+                    <div
+                      class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center cursor-pointer hover:border-custom-blue transition"
+                    >
+                      <input
+                        id="inches"
+                        class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
+                        type="text"
+                        placeholder="0"
+                      />
+                      <span
+                        class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
+                        >in</span
+                      >
+                    </div>
+                  </div>
+                </label>
+                <!-- weight -->
+                <label>
+                  <p class="text-[14px] leading-[21px]">Weight</p>
+                  <div class="flex gap-4">
+                    <!-- stones -->
+                    <div
+                      class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center cursor-pointer hover:border-custom-blue transition"
+                    >
+                      <input
+                        id="stones"
+                        class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
+                        type="text"
+                        placeholder="0"
+                      />
+                      <span
+                        class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
+                        >st</span
+                      >
+                    </div>
+                    <!-- pounds -->
+                    <div
+                      class="h-[69px] mt-2 border border-custom-gray rounded-xl px-6 py-[20px] flex gap-6 items-center cursor-pointer hover:border-custom-blue transition"
+                    >
+                      <input
+                        id="pounds"
+                        class="outline-none grow w-full text-2xl leading-[29px] font-semibold text-custom-gunmetal -tracking-[1.2px]"
+                        type="text"
+                        placeholder="0"
+                      />
+                      <span
+                        class="text-2xl leading-[29px] font-semibold text-custom-blue -tracking-[1.2px]"
+                        >lbs</span
+                      >
+                    </div>
+                  </div>
+                </label>
+              </div>
               <!-- result -->
               <article
+                id="result"
                 class="bg-custom-blue p-8 rounded-2xl sm:rounded-r-[99px] flex flex-col sm:flex-row sm:items-center gap-6"
               >
                 <div class="sm:flex-1 flex flex-col gap-2">
@@ -136,6 +223,7 @@
                     Your BMI is...
                   </h4>
                   <h3
+                    id="bmi-result-num"
                     class="text-custom-white -tracking-[2.4px] lg:-tracking-[3.2px] leading-[52.8px] lg:leading-[70.4px] text-5xl lg:text-[64px] font-semibold"
                   >
                     23.4
@@ -144,8 +232,14 @@
                 <p
                   class="sm:flex-1 text-custom-white text-[14px] leading-[21px]"
                 >
-                  Your BMI suggests you're [healthy weight] Your ideal weight is
-                  between <span class="font-bold">63.3kgs - 85.2kgs</span>.
+                  Your BMI suggests you're
+                  <span id="bmi-result-verbal">[healthy weight]</span> Your
+                  ideal weight is between
+                  <span
+                    id="weight-range"
+                    class="font-bold"
+                    >63.3kgs - 85.2kgs</span
+                  >.
                 </p>
               </article>
             </form>
@@ -153,22 +247,27 @@
         </div>
       </section>
       <!-- about -->
-      <section class="mt-[72px] sm:mt-[96px] lg:mt-[210px]">
+      <section
+        id="about"
+        class="mt-[72px] sm:mt-[96px] lg:mt-[296px]"
+      >
         <div
-          class="section-center flex flex-col sm:flex-row gap-12 sm:gap-[75px] sm:items-center"
+          class="section-center flex flex-col sm:flex-row gap-12 sm:gap-[75px] sm:items-center lg:gap-0 lg:px-10 xl:px-0 relative"
         >
           <!-- image container -->
-          <div class="sm:flex-1 sm:h-[411px] lg:w-[564px] lg:h-[388px]">
+          <div class="sm:flex-1 sm:h-[411px] lg:w-[564px] lg:h-[388px] lg:mr-8">
             <img
-              class="sm:object-cover sm:h-full sm:w-auto sm:object-bottom lg:object-fill"
+              class="sm:object-cover sm:h-full sm:w-auto sm:object-bottom lg:w-full overflow-visible"
               src="./assets/images/image-man-eating.webp"
               alt=""
             />
           </div>
           <!-- info -->
-          <div class="flex flex-col gap-8 px-6 sm:p-0 sm:flex-1">
+          <div
+            class="flex flex-col gap-8 lg:gap-[35px] px-6 sm:p-0 sm:flex-1 lg:ml-8 xl:ml-[131px]"
+          >
             <h2
-              class="text-[32px] font-semibold leading-[35.2px] -tracking-[1.6px]"
+              class="text-[32px] lg:text-5xl font-semibold leading-[35.2px] lg:leading-[52.8px] -tracking-[1.6px] lg:-tracking-[2.4px]"
             >
               What your BMI result means
             </h2>
@@ -185,11 +284,15 @@
         </div>
       </section>
       <!-- features -->
-      <section class="mt-[72px] sm:mt-[96px] bg-gradient-2 py-14 sm:py-[60px]">
-        <div class="section-center px-6 sm:px-10 flex flex-col gap-10">
+      <section
+        class="mt-[72px] sm:mt-[96px] bg-gradient-2 py-14 sm:py-[60px] lg:py-0 lg:pt-[72px] lg:pb-24"
+      >
+        <div
+          class="section-center px-6 sm:px-10 xl:px-0 flex flex-col lg:flex-row gap-10 lg:gap-8"
+        >
           <!-- feature -->
           <article
-            class="flex flex-col sm:flex-row sm:items-center gap-8 items-start"
+            class="flex flex-col sm:flex-row lg:flex-col sm:items-center gap-8 lg:gap-[45px] items-start lg:items-start"
           >
             <img
               src="./assets/images/icon-eating.svg"
@@ -210,7 +313,7 @@
           <!-- end of feature -->
           <!-- feature -->
           <article
-            class="flex flex-col sm:flex-row sm:items-center gap-8 items-start"
+            class="flex flex-col sm:flex-row lg:flex-col sm:items-center gap-8 lg:gap-[45px] items-start lg:items-start"
           >
             <img
               src="./assets/images/icon-exercise.svg"
@@ -231,7 +334,7 @@
           <!-- end of feature -->
           <!-- feature -->
           <article
-            class="flex flex-col sm:flex-row sm:items-center gap-8 items-start"
+            class="flex flex-col sm:flex-row lg:flex-col sm:items-center gap-8 lg:gap-[45px] items-start lg:items-start"
           >
             <img
               src="./assets/images/icon-eating.svg"
@@ -253,16 +356,23 @@
         </div>
       </section>
       <!-- Limitations -->
-      <section class="mt-[72px] sm:mt-[96px]">
-        <div class="section-center px-6 sm:px-10 grid gap-14">
+      <section
+        id="limitations"
+        class="mt-[72px] sm:mt-[96px] lg:mt-[120px]"
+      >
+        <div
+          class="section-center px-6 sm:px-10 xl:px-0 grid gap-14 lg:grid-cols-6 lg:gap-8"
+        >
           <!-- limitations heading -->
-          <div class="flex flex-col gap-8">
+          <div
+            class="flex flex-col gap-8 lg:gap-[35px] lg:col-start-1 lg:col-end-2 lg:w-[564px]"
+          >
             <h2
-              class="text-[32px] font-semibold leading-[35.2px] -tracking-[1.6px]"
+              class="text-[32px] lg:text-5xl font-semibold leading-[35.2px] lg:leading-[52.8px] -tracking-[1.6px] lg:-tracking"
             >
               Limitations of BMI
             </h2>
-            <p>
+            <p class="relative">
               Although BMI is often a practical indicator of healthy weight, it
               is not suited for every person. Specific groups should carefully
               consider their BMI outcomes, and in certain cases, the measurement
@@ -270,10 +380,12 @@
             </p>
           </div>
           <!-- limitations -->
-          <div class="grid gap-4 sm:grid-cols-4 sm:gap-y-6">
+          <div
+            class="grid gap-4 sm:grid-cols-4 sm:gap-y-6 lg:col-start-2 lg:col-end-7 lg:grid-cols-10 lg:gap-8"
+          >
             <!-- limitation -->
             <article
-              class="limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2"
+              class="lg:p-8 limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2 lg:col-start-6 lg:col-end-10"
             >
               <div>
                 <img
@@ -291,7 +403,7 @@
             <!-- end of limitation -->
             <!-- limitation -->
             <article
-              class="limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2"
+              class="lg:p-8 limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2 lg:col-start-3 lg:col-end-7"
             >
               <div>
                 <img
@@ -308,7 +420,7 @@
             <!-- end of limitation -->
             <!-- limitation -->
             <article
-              class="limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2"
+              class="lg:p-8 limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2 lg:col-start-7 lg:col-end-11"
             >
               <div>
                 <img
@@ -325,7 +437,7 @@
             <!-- end of limitation -->
             <!-- limitation -->
             <article
-              class="limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2"
+              class="lg:p-8 limitation p-6 shadow-custom-limitations rounded-2xl sm:col-span-2 lg:col-start-1 lg:col-end-5 lg:-mt-2"
             >
               <div>
                 <img
@@ -343,7 +455,7 @@
             <!-- end of limitation -->
             <!-- limitation -->
             <article
-              class="limitation p-6 shadow-custom-limitations rounded-2xl sm:col-start-2 sm:col-end-4"
+              class="lg:p-8 limitation p-6 shadow-custom-limitations rounded-2xl sm:col-start-2 sm:col-end-4 lg:col-start-5 lg:col-end-9 lg:-mt-2"
             >
               <div>
                 <img
@@ -363,5 +475,9 @@
         </div>
       </section>
     </main>
+    <script
+      type="module"
+      src="./assets/js/script.js"
+    ></script>
   </body>
 </html>

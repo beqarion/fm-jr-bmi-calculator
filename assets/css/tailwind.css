@@ -106,3 +106,17 @@ Limitations
 .limitation h4 {
   @apply text-[20px] font-semibold leading-6 -tracking-[1px];
 }
+
+/* 
+========
+curved line layout
+========
+*/
+#about .section-center::after {
+  content: "";
+  @apply absolute  w-[85px] h-[200px] top-0 right-[27px] -translate-y-full  lg:bg-curved-line-left;
+}
+#limitations > div:first-child > div:first-child p::after {
+  content: "";
+  @apply absolute w-[92px] h-[122px]  bottom-0  translate-y-[calc(100%_+_67px)] left-[165px] lg:bg-curved-line-right;
+}
