@@ -4,13 +4,15 @@ import {
   selectMetric,
   selectImperial,
   initialUnitUI,
+  handleKeyUp,
 } from "./utils/domManip.js"
+import { startingAnimations } from "./animations/initialAnim.js"
 
 // unit switch elements
 const metricRadioDOM = get("#metric-btn")
 const imperialRadioDOM = get("#imperial-btn")
 
-const unit = localStorage.getItem("unit")
+const formDOM = get("#bmi-form")
 
 // events
 metricRadioDOM.addEventListener("click", () => {
@@ -24,4 +26,7 @@ imperialRadioDOM.addEventListener("click", () => {
 
 window.addEventListener("DOMContentLoaded", () => {
   initialUnitUI()
+  startingAnimations()
 })
+formDOM.addEventListener("keyup", handleKeyUp)
+formDOM.addEventListener("click", handleKeyUp)
