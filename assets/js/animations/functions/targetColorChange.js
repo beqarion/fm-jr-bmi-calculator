@@ -6,7 +6,7 @@ export const targetColorChange = (el, fromColor) => {
   anime({
     targets: el,
     color: [fromColor, ownColor],
-    easing: "easeInCirc",
-    duration: 700,
+    easing: "easeOutInBounce",
+    duration: 1000,
   })
 }
