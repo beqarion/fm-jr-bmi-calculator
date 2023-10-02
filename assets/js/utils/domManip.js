@@ -1,7 +1,7 @@
 import get from "./getElement.js"
 import numFromStr from "./extractNum.js"
-import { debounce } from "./throttlDebounce.js"
-import { targetColorChange } from "../animations/initialAnim.js"
+import { debounce, throttle } from "./throttlDebounce.js"
+import { targetColorChange } from "../animations/functions/targetColorChange.js"
 import {
   calcBmiMetric,
   calcBmiImperial,
@@ -52,13 +52,7 @@ export const selectImperial = () => {
 // define which unit is chosen, first checking the 'localStorage' then radio UI button
 export const whichUnitChosen = () => {
   const storageUnit = localStorage.getItem("unitsBMI")
-  const domUnit = [metricRadioDOM, imperialRadioDOM].reduce((acc, el) => {
-    if (el.checked) {
-      acc = el.value
-    }
-    return acc
-  }, "")
-  return storageUnit ? storageUnit : domUnit
+  return storageUnit ? storageUnit : "metric"
 }
 export const initialUnitUI = () => {
   const unit = whichUnitChosen()
@@ -73,7 +67,25 @@ export const initialUnitUI = () => {
     }
   }
 }
-export function handleKeyUp() {
+const debouncedInputFt = debounce((inputInches, totalInches) => {
+  if (inputInches >= 12) {
+    ftDOM.value = Math.floor(totalInches / 12) || ""
+    inDOM.value = totalInches % 12 || ""
+    targetColorChange(ftDOM, "#00FF00")
+    targetColorChange(inDOM, "#00FF00")
+  }
+}, 2000)
+let debouncedInputSt = debounce((inputStones, totalStones) => {
+  if (inputStones >= 14) {
+    stDOM.value = Math.floor(totalStones / 14) || ""
+    lbsDOM.value = totalStones % 14 || ""
+    targetColorChange(stDOM, "#00FF00")
+    targetColorChange(lbsDOM, "#00FF00")
+  }
+}, 2000)
+
+// keyup handler
+export function handleKeyUp(event) {
   let bmi
   let status
   const unit = whichUnitChosen()
@@ -94,21 +106,10 @@ export function handleKeyUp() {
     const lbs = numFromStr(lbsDOM.value) || 0
 
     const inches = inch + 12 * ft
-    debounce(() => {
-      if (inch >= 12) {
-        ftDOM.value = Math.floor(inches / 12) || ""
-        targetColorChange(ftDOM, "#00ff00")
-        inDOM.value = inches % 12 || ""
-      }
-    }, 3000)()
+    debouncedInputFt(inch, inches)
 
     const pounds = lbs + 14 * st
-    debounce(() => {
-      if (lbs >= 14) {
-        stDOM.value = Math.floor(pounds / 14) || ""
-        lbsDOM.value = pounds % 14 || ""
-      }
-    }, 3000)()
+    debouncedInputSt(lbs, pounds)
 
     bmi = calcBmiImperial(inches, pounds)
     status = bmiStatus(bmi)
@@ -120,6 +121,9 @@ export function handleKeyUp() {
     return startingResult()
   }
 }
+
+// throttled keyup handler
+export const throttledKeyUpHandler = throttle(handleKeyUp, 500)
 
 function updateResults(bmi, bmiStatus, range) {
   results.innerHTML = `

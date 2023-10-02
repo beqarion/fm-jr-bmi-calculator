@@ -26,8 +26,6 @@ export const healthyRangeImperial = (inches) => {
   const weightHigh = (24.9 * Math.pow(inches, 2)) / 703
   const roundedWeightHigh = Math.round(weightHigh * 10) / 10
 
-  console.log(stonesAndPounds(roundedWeightLow), roundedWeightLow)
-
   return `${stonesAndPounds(roundedWeightLow).stones}st ${
     stonesAndPounds(roundedWeightLow).pounds
   }lbs - ${stonesAndPounds(roundedWeightHigh).stones}st ${
