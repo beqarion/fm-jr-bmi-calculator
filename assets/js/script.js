@@ -8,7 +8,7 @@ import {
   throttledKeyUpHandler,
 } from "./utils/domManip.js"
 import { startingAnimations } from "./animations/initialAnim.js"
-import { throttledScrollAnimation } from "./animations/functions/scrollAnimation.js"
+// import { throttledScrollAnimation } from "./animations/functions/scrollAnimation.js"
 // unit switch elements
 const metricRadioDOM = get("#metric-btn")
 const imperialRadioDOM = get("#imperial-btn")
@@ -27,8 +27,8 @@ imperialRadioDOM.addEventListener("click", () => {
 
 window.addEventListener("DOMContentLoaded", () => {
   initialUnitUI()
-  startingAnimations()
-  window.addEventListener("scroll", throttledScrollAnimation)
+  // startingAnimations()
+  // window.addEventListener("scroll", throttledScrollAnimation)
 })
 formDOM.addEventListener("keyup", throttledKeyUpHandler)
 formDOM.addEventListener("click", handleKeyUp)
