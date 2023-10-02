@@ -1,5 +1,7 @@
 import get from "./getElement.js"
 import numFromStr from "./extractNum.js"
+import { debounce } from "./throttlDebounce.js"
+import { targetColorChange } from "../animations/initialAnim.js"
 import {
   calcBmiMetric,
   calcBmiImperial,
@@ -92,16 +94,22 @@ export function handleKeyUp() {
     const lbs = numFromStr(lbsDOM.value) || 0
 
     const inches = inch + 12 * ft
-    // if (inch >= 12) {
-    //   ftDOM.value = Math.floor(inches / 12) || ""
-    //   inDOM.value = inches % 12 || ""
-    // }
+    debounce(() => {
+      if (inch >= 12) {
+        ftDOM.value = Math.floor(inches / 12) || ""
+        targetColorChange(ftDOM, "#00ff00")
+        inDOM.value = inches % 12 || ""
+      }
+    }, 3000)()
 
     const pounds = lbs + 14 * st
-    // if (lbs >= 14) {
-    //   stDOM.value = Math.floor(pounds / 14) || ""
-    //   lbsDOM.value = pounds % 14 || ""
-    // }
+    debounce(() => {
+      if (lbs >= 14) {
+        stDOM.value = Math.floor(pounds / 14) || ""
+        lbsDOM.value = pounds % 14 || ""
+      }
+    }, 3000)()
+
     bmi = calcBmiImperial(inches, pounds)
     status = bmiStatus(bmi)
     const range = healthyRangeImperial(inches)

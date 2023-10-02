@@ -35,8 +35,19 @@ export const startingAnimations = () => {
         opacity: [0, 1],
         translateX: ["-100%", 0],
         translateY: ["-100%", 0],
-        easing:"easeInOutSine"
+        easing: "easeInOutSine",
       },
       "-=500"
     )
+}
+
+export const targetColorChange = (el, colorFrom) => {
+  console.log(el);
+  anime({
+    targets: el,
+    color: ["#F00", "inherit"],
+    // opacity: [0, 1],
+    easing: "easeOutCirc",
+    duration: 3000,
+  })
 }
