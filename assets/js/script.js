@@ -30,5 +30,5 @@ window.addEventListener("DOMContentLoaded", () => {
   startingAnimations()
   window.addEventListener("scroll", throttledScrollAnimation)
 })
-formDOM.addEventListener("keyup", throttledKeyUpHandler)
+formDOM.addEventListener("keyup", handleKeyUp)
 formDOM.addEventListener("click", handleKeyUp)
