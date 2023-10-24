@@ -5,7 +5,6 @@ import {
   selectImperial,
   initialUnitUI,
   handleKeyUp,
-  throttledKeyUpHandler,
 } from "./utils/domManip.js"
 import { startingAnimations } from "./animations/initialAnim.js"
 import { throttledScrollAnimation } from "./animations/functions/scrollAnimation.js"
